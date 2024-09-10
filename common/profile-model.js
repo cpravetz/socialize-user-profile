@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import SimpleSchema from 'simpl-schema';
+import SimpleSchema from 'meteor/aldeed:simple-schema';
 /* eslint-disable import/no-unresolved */
 
 export default ({ Meteor, Mongo, LinkableModel, LinkParent, ServerTime }) => {
@@ -24,7 +24,6 @@ export default ({ Meteor, Mongo, LinkableModel, LinkParent, ServerTime }) => {
     Profile.attachSchema(new SimpleSchema({
         _id: {
             type: String,
-            regEx: SimpleSchema.RegEx.Id,
             autoValue() {
                 if (this.isInsert && !this.isFromTrustedCode) {
                     return this.userId;
