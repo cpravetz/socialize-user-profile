@@ -1,7 +1,8 @@
 export default ({ User, ProfilesCollection }) => {
     User.methods({
-        profile() {
-            return ProfilesCollection.findOne({ _id: this._id });
+        async profile() {
+            const profile = await ProfilesCollection.findOneAsync({ _id: this._id });
+            return profile;
         },
     });
 };

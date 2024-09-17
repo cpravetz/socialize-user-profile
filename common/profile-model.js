@@ -11,8 +11,8 @@ export default ({ Meteor, Mongo, LinkableModel, LinkParent, ServerTime }) => {
     * @param {Object} document An object representing a users profile usually a Mongo document
     */
     class Profile extends LinkParent {
-        user() {
-            return Meteor.users.findOne({ _id: this._id });
+        async user() {
+            return await Meteor.users.findOneAsync({ _id: this._id });
         }
         checkOwnership() {
             return this._id === Meteor.userId();

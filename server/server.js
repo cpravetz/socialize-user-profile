@@ -25,12 +25,12 @@ Meteor.users.after.insert(function afterInsertUser(userId, document) {
             profile.username = document.username;
         }
 
-        ProfilesCollection.insert(profile);
+        ProfilesCollection.insertAsync(profile);
     }
 });
 
 Meteor.users.after.remove(function afterRemoveUser(userId) {
-    ProfilesCollection.remove({ userId });
+    ProfilesCollection.removeAsync({ userId });
 });
 
 Meteor.users.deny({

@@ -93,7 +93,7 @@ Profile.methods({
     }
 });
 
-var userProfile = ProfilesCollection.findOne();
+var userProfile = ProfilesCollection.findOneAsync();
 
 userProfile.fullName(); //=> "John Doe"
 ```
@@ -107,7 +107,7 @@ export class EnhancedProfile extends Profile{
     }
 }
 
-var userProfile = ProfilesCollection.findOne();
+var userProfile = ProfilesCollection.findOneAsync();
 
 userProfile.fullName(); //=> "John Doe"
 ```
@@ -182,7 +182,7 @@ import '@socialize/user-profile';
 ```
 
 ```javascript
-let user = Meteor.users.findOne();
+let user = Meteor.users.findOneAsync();
 
 user.profile();
 
